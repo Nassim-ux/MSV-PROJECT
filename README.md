@@ -73,7 +73,7 @@ Entre les chemins d'encodage et de décodage, nous avons inséré un bloc "Bottl
 
 **Critères d'évaluation :**
 
-L'évaluation quantitative des modèles de segmentation entrainés a été effectuée en calculant les quatre indicateurs ou métriques àsavoir le coefficient Dice, la sensibilité, la spécificité et la distance de Hausdorff; pour trois zones tumorales différentes avec la structure suivante :
+L'évaluation quantitative des modèles de segmentation entrainés a été effectuée en calculant les quatre indicateurs ou métriques à savoir le coefficient Dice, la sensibilité, la spécificité et la distance de Hausdorff; pour trois zones tumorales différentes avec la structure suivante :
 
 
 
@@ -92,7 +92,7 @@ L'évaluation quantitative des modèles de segmentation entrainés a été effec
 
 ![equation](https://latex.codecogs.com/svg.image?\inline&space;Sensibility=\frac{|Ref\bigcap&space;Seg|}{|Seg|})
 
-![equation](https://latex.codecogs.com/svg.image?\inline&space;Sensibility=\frac{|\overline{Ref}\bigcap\overline{Seg}|}{|\overline{Ref}|})
+![equation](https://latex.codecogs.com/svg.image?\inline&space;Specificity=\frac{|\overline{Ref}\bigcap\overline{Seg}|}{|\overline{Ref}|})
 
 ![equation](https://latex.codecogs.com/svg.image?\inline&space;{\displaystyle&space;d_{\mathrm{H}}(X,Y):=\max\left\(\sup&space;_{x\in&space;X}d(x,Y),\sup&space;_{y\in&space;Y}d(X,y)\,\right\),})
 
