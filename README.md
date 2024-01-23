@@ -16,8 +16,8 @@
 
 ### Projet :
 
-- **Projet Name:** Segmentation des Tumeurs cérébrales
-- **Sujet:** Partie "Fusion Précoce"
+- **Projet Name:** FUSION D’INFORMATIONS MULTIMODALES POUR LA SEGMENTATION D’IMAGES
+- **Sujet:** Méthode "Fusion Précoce"
 - **Date:** 23 Janvier 2024
 
 ## Introduction :
