@@ -12,13 +12,16 @@
 ### Encadré par :
 
 - Camille KURTZ
+- Florence CLOPPET
 
 
 ### Projet :
 
-- **Projet Name:** FUSION D’INFORMATIONS MULTIMODALES POUR LA SEGMENTATION D’IMAGES
+- **Projet:** FUSION D’INFORMATIONS MULTIMODALES POUR LA SEGMENTATION D’IMAGES
 - **Sujet:** Méthode "Fusion Précoce"
 - **Date:** 23 Janvier 2024
+- **Code Source:** [Notebook Kaggle](msv-project-brats.ipynb) & [Notebook Colab](setup_kaggle_colab.ipynb)
+
 
 ## Introduction :
 
@@ -55,6 +58,8 @@ Voici un tableau qui montre les dernières versions du dataset BraTS, nous allon
 
 Toutes les exécutions d'entrainement de notre modèle ont été effectué à l'aide de « Kaggle ». C'est une plateforme en ligne qui permet d'écrire des programmes en langage Python et offre des outils pour le calcul à haute performance avec un accès gratuit aux GPUs.
 
+![](image-3.png)
+
 Nous avons utilisé le **Nvidia P100 avec 30 Go** de disque en exécution hors ligne s'appuie sur la technologie Turing révolutionnaire à coeurs Tensor pour offrir des performances de calcul multi-précision avec une grande variété de charges de travail.
 
 ## Architecture :
@@ -88,13 +93,13 @@ L'évaluation quantitative des modèles de segmentation entrainés a été effec
 4.   BG (background -> classe 0)
 
 
-![equation](https://latex.codecogs.com/svg.image?\inline&space;Dice=\frac{2|Ref\bigcap&space;Seg|}{|Ref|&plus;|Seg|})
+![equation](https://latex.codecogs.com/svg.image?\inline&space;\color{white}Dice=\frac{2|Ref\bigcap&space;Seg|}{|Ref|&plus;|Seg|})
 
-![equation](https://latex.codecogs.com/svg.image?\inline&space;Sensibility=\frac{|Ref\bigcap&space;Seg|}{|Seg|})
+![equation](https://latex.codecogs.com/svg.image?\inline&space;\color{white}Sensibility=\frac{|Ref\bigcap&space;Seg|}{|Seg|})
 
-![equation](https://latex.codecogs.com/svg.image?\inline&space;Specificity=\frac{|\overline{Ref}\bigcap\overline{Seg}|}{|\overline{Ref}|})
+![equation](https://latex.codecogs.com/svg.image?\inline&space;\color{white}Specificity=\frac{|\overline{Ref}\bigcap\overline{Seg}|}{|\overline{Ref}|})
 
-![equation](https://latex.codecogs.com/svg.image?\inline&space;{\displaystyle&space;d_{\mathrm{H}}(X,Y):=\max\left\(\sup&space;_{x\in&space;X}d(x,Y),\sup&space;_{y\in&space;Y}d(X,y)\,\right\),})
+![equation](https://latex.codecogs.com/svg.image?\inline&space;\color{white}{\displaystyle&space;d_{\mathrm{H}}(X,Y):=\max\left\(\sup&space;_{x\in&space;X}d(x,Y),\sup&space;_{y\in&space;Y}d(X,y)\,\right\),})
 
 
 
@@ -103,13 +108,15 @@ En plus de l'évaluation quantitative, le modèle conçu subie une évaluation q
 
 La fonction loss utilisé est la DiceLoss :
 
-![equation](https://latex.codecogs.com/svg.image?\inline&space;DiceLoss=1-\frac{(2\sum&space;_i^n&space;p_i&space;g_i)}{(\sum_i^n&space;p_i^2&plus;\sum_i^n&space;g_i^2)})
+![equation](https://latex.codecogs.com/svg.image?\inline&space;\color{white}DiceLoss=1-\frac{(2\sum&space;_i^n&space;p_i&space;g_i)}{(\sum_i^n&space;p_i^2&plus;\sum_i^n&space;g_i^2)})
 
 Où les sommes portent sur les _n_ voxels du volume de segmentation prédit et du volume de vérité terrain .
 
 Avant de passer les images au modèle on effectue une normalisation des images, puis on extrait des patch aléatoire (un par image) de taille `128 x 128 x 128`.
 
-![Alt text](image-4.png)
+![Alt text](image-13.png)
+
+![Alt text](image-14.png)
 
 Ceci va nous permettre d'avoir un ensemble de données représenté sous forme d'hyper volumes de `128 x 128 x 128 x 4` ou channel = 4 représentants les 4 modalités de l'IRM. Et on les organise en batch avec batchsize = 4.
 
